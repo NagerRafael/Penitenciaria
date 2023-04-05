@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ficha{% endblock %}
+
+{% block body %}
+    <h1>Ficha</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdFicha</th>
+                <td>{{ ficha.idFicha }}</td>
+            </tr>
+            <tr>
+                <th>NombreRecluso</th>
+                <td>{{ ficha.nombreRecluso }}</td>
+            </tr>
+            <tr>
+                <th>ApellidoRecluso</th>
+                <td>{{ ficha.apellidoRecluso }}</td>
+            </tr>
+            <tr>
+                <th>Delito</th>
+                <td>{{ ficha.delito }}</td>
+            </tr>
+            <tr>
+                <th>Sentencia</th>
+                <td>{{ ficha.sentencia }}</td>
+            </tr>
+            <tr>
+                <th>InfoAdicional</th>
+                <td>{{ ficha.infoAdicional }}</td>
+            </tr>
+            <tr>
+                <th>Validez</th>
+                <td>{{ ficha.validez }}</td>
+            </tr>
+            <tr>
+                <th>EstadoFicha</th>
+                <td>{{ ficha.estadoFicha }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_ficha_index') }}">back to list</a>
+
+    <a href="{{ path('app_ficha_edit', {'idFicha': ficha.idFicha}) }}">edit</a>
+
+    {{ include('ficha/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ficha index{% endblock %}
+
+{% block body %}
+    <h1>Ficha index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdFicha</th>
+                <th>NombreRecluso</th>
+                <th>ApellidoRecluso</th>
+                <th>Delito</th>
+                <th>Sentencia</th>
+                <th>InfoAdicional</th>
+                <th>Validez</th>
+                <th>EstadoFicha</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ficha in fichas %}
+            <tr>
+                <td>{{ ficha.idFicha }}</td>
+                <td>{{ ficha.nombreRecluso }}</td>
+                <td>{{ ficha.apellidoRecluso }}</td>
+                <td>{{ ficha.delito }}</td>
+                <td>{{ ficha.sentencia }}</td>
+                <td>{{ ficha.infoAdicional }}</td>
+                <td>{{ ficha.validez }}</td>
+                <td>{{ ficha.estadoFicha }}</td>
+                <td>
+                    <a href="{{ path('app_ficha_show', {'idFicha': ficha.idFicha}) }}">show</a>
+                    <a href="{{ path('app_ficha_edit', {'idFicha': ficha.idFicha}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_ficha_new') }}">Create new</a>
+{% endblock %}
